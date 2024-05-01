@@ -1,0 +1,47 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<main>
+    <section class="py-5 text-center container">
+        <div class="px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4" src="media\images\GundArcsIcoTransparent.png" alt="" width="120" height="120">
+            <h1 class="display-5 fw-bold text-body-emphasis">Gundam Showcase</h1>
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <p class="lead text-muted">My collection of gunpla kits i've built over the years, with information about them and the mobile suits they're based on.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+    
+          <div class="pb-3 h5">All Kits</div>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+    
+            {% for kit in kits %}
+    
+            <div class="col">
+              <div class="card shadow-sm">
+                <img class="img-fluid" alt="Responsive image" src="{{ kit.image.url }}">
+                <div class="card-body">
+                  <p class="card-text">
+                    <a class="text-dark text-decoration-none" href="{{ kit.get_absolute_url }}">{{ kit.kitname }}</a>
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">{{ kit.series }}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            {% endfor %}
+    
+          </div>
+        </div>
+      </div>
+
+</main>
+{% endblock %}
