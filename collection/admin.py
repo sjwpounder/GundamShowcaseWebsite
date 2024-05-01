@@ -9,5 +9,5 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Kit)
 class KitAdmin(admin.ModelAdmin):
-    list_display = ['name', 'manufacturer', 'series', 'slug', 'built', 'created', 'updated']
+    list_display = ['kitname', 'manufacturer', 'series', 'slug', 'built', 'created', 'updated']
     list_filter = ['manufacturer', 'series']
